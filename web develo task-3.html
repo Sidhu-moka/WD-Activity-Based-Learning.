@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vinland Shopping Store</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fffaf3;
+            color: #333;
+        }
+
+        header {
+            background: #39251f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-family: Georgia, serif;
+            margin: 0;
+            font-size: 34px;
+        }
+
+        nav {
+            background: #56382d;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 12px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffd28a;
+        }
+
+        .search {
+            background: #ead8c3;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .search input {
+            width: 70%;
+            max-width: 400px;
+            padding: 12px;
+            border: 1px solid #c4a88d;
+            border-radius: 5px;
+        }
+
+        .hero {
+            background: #ead8c3;
+            margin: 20px;
+            padding: 45px 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .hero h2 {
+            color: #39251f;
+            font-family: Georgia, serif;
+            font-size: 36px;
+        }
+
+        .hero p {
+            line-height: 1.7;
+        }
+
+        h2 {
+            color: #6b3828;
+            font-family: Georgia, serif;
+        }
+
+        section {
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        button {
+            background: #6b3828;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background: #39251f;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .product {
+            background: white;
+            width: 220px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #ddd;
+            text-align: left;
+        }
+
+        .product img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product h3 {
+            color: #39251f;
+        }
+
+        .product p {
+            line-height: 1.5;
+        }
+
+        .price {
+            color: #16804a;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .old-price {
+            color: #888;
+            text-decoration: line-through;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        .discount {
+            background: #f1e3d4;
+            color: #6b3828;
+            padding: 5px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .rating {
+            color: #b87919;
+        }
+
+        .product button {
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .offer {
+            background: #f1e3d4;
+            padding: 30px 20px;
+            margin: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .offer h2 {
+            color: #39251f;
+        }
+
+        #cartMessage {
+            color: #16804a;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #39251f;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        footer h3 {
+            font-family: Georgia, serif;
+            font-size: 24px;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                display: inline-block;
+                margin: 7px;
+            }
+
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            .product {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .search input {
+                width: 90%;
+                box-sizing: border-box;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Vinland Store</h1>
+        <p>Quality Products • Great Prices • Happy Shopping</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#products">Products</a>
+        <a href="#offers">Offers</a>
+        <a href="#contact">Contact</a>
+        <a href="#products">Cart (<span id="cartCount">0</span>)</a>
+    </nav>
+
+    <div class="search">
+        <input type="text" id="searchBox"
+               placeholder="Search for products...">
+    </div>
+
+    <div class="hero" id="home">
+        <h2>Welcome to Vinland Store</h2>
+        <p>
+            Discover stylish electronics, fashion and accessories
+            at amazing prices.
+        </p>
+        <p><strong>Special discounts on selected products!</strong></p>
+        <a href="#products">
+            <button>Shop Now</button>
+        </a>
+    </div>
+
+    <section id="categories">
+        <h2>Shop by Category</h2>
+        <p>Choose your favourite category.</p>
+
+        <div class="categories">
+            <button onclick="filterProducts('all')">All Products</button>
+            <button onclick="filterProducts('electronics')">Electronics</button>
+            <button onclick="filterProducts('fashion')">Fashion</button>
+            <button onclick="filterProducts('accessories')">Accessories</button>
+        </div>
+    </section>
+
+    <section id="products">
+        <h2>Our Featured Products</h2>
+        <p>Explore our popular products and special prices.</p>
+
+        
+<div class="products" id="productList">
+
+    <!-- ELECTRONICS -->
+
+    <div class="product" data-category="electronics">
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80" alt="Wireless headphones">
+        <p><span class="discount">25% OFF</span></p>
+        <h3>Wireless Headphones</h3>
+        <p>Enjoy music with stylish wireless headphones.</p>
+        <p class="rating">★ ★ ★ ★ ☆ (4.2)</p>
+        <p><span class="price">₹1,499</span> <span class="old-price">₹1,999</span></p>
+        <button onclick="addToCart('Wireless Headphones')">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="electronics">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80" alt="Smart watch">
+        <p><span class="discount">20% OFF</span></p>
+        <h3>Smart Watch</h3>
+        <p>Track your daily activity with a modern watch.</p>
+        <p class="rating">★ ★ ★ ★ ★ (4.7)</p>
+        <p><span class="price">₹2,399</span> <span class="old-price">₹2,999</span></p>
+        <button onclick="addToCart('Smart Watch')">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="electronics">
+        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=500&q=80" alt="Smartphone">
+        <p><span class="discount">15% OFF</span></p>
+        <h3>Smartphone</h3>
+        <p>A modern smartphone for photos, apps, and entertainment.</p>
+        <p class="rating">★ ★ ★ ★ ☆ (4.4)</p>
+        <p><span class="price">₹14,999</span> <span class="old-price">₹17,999</span></p>
+        <button onclick="addToCart('Smartphone')">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="electronics">
+        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=500&q=80" alt="Laptop">
+        <p><span class="discount">18% OFF</span></p>
+        <h3>Everyday Laptop</h3>
+        <p>A versatile laptop for study, work, and entertainment.</p>
+        <p class="rating">★ ★ ★ ★ ★ (4.6)</p>
+        <p><span class="price">₹42,999</span> <span class="old-price">₹52,499</span></p>
+        <button onclick="addToCart('Everyday Laptop')">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="electronics">
+        <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=500&q=80" alt="Gaming console">
+        <p><span class="discount">10% OFF</span></p>
+        <h3>Gaming Console</h3>
+        <p>Enjoy immersive gaming and exciting entertainment.</p>
+        <p class="rating">★ ★ ★ ★ ☆ (4.5)</p>
+        <p><span class="price">₹29,999</span> <span class="old-price">₹33,299</span></p>
+        <button onclick="addToCart('Gaming Console')">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="electronics">
+        <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=500&q=80" alt="Bluetooth speaker">
+        <p><span class="discount">20% OFF</span></p>
+        <h3>Bluetooth Speaker</h3>
+        <p>Enjoy portable sound for home and outdoor use.</p>
+        <p class="rating">★ ★ ★ ★ ☆ (4.3)</p>
+        <p><span class="price">₹1,999</span> <span class="old-price">₹2,499</span></p>
+        <button onclick="addToCart('Bluetooth Speaker')">Add to Cart</button>
+    </div>
+
+    <!-- FASHION -->
+
+    <div class="product" data-category="fashion">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=80" alt="Cotton T-shirt">
+        <p><span class="discount">30% OFF</span></p>
+        <h3>Classic T-Shirt</h3>
+        <p>Comfortable cotton T-shirt for everyday wear.</p>
+        <p class="rating">★ ★ ★ ★ ☆ (4.3)</p>
+        <p><span class="price">₹699</span> <span class="old-price">₹999</span></p>
+        <button onclick="addToCart('Classic T-Shirt')">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="fashion">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80" alt="Sports shoes">
+        <p><span class="discount">20% OFF</span></p>
+        <h3>Sports Shoes</h3>
+        <p>Lightweight shoes for walking and daily activities.</p>
+        <p class="rating">★ ★ ★ ★ ★ (4.6)</p>
+        <p><span class="price">₹1,599</span> <span class="old-price">₹1,999</span></p>
+        <button onclick="addToCart('Sports Shoes')">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="fashion">
+        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=500&q=80" alt="Leather jacket">
+        <p><span class="discount">25% OFF</span></p>
+        <h3>Classic Jacket</h3>
+        <p>A timeless outerwear style for a smart casual look.</p>
+        <p class="rating">★ ★ ★ ★ ☆ (4.4)</p>
+        <p><span class="price">₹2,999</span> <span class="old-price">₹3,999</span></p>
+        <button onclick="addToCart('Classic Jacket')">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="fashion">
+        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=500&q=80" alt="Fashion handbag">
+        <p><span class="discount">20% OFF</span></p>
+        <h3>Fashion Handbag</h3>
+        <p>A stylish handbag for everyday essentials.</p>
+        <p class="rating">★ ★ ★ ★ ★ (4.6)</p>
+        <p><span class="price">₹1,599</span> <span class="old-price">₹1,999</span></p>
+        <button onclick="addToCart('Fashion Handbag')">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="fashion">
+        <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=500&q=80" alt="Casual clothing">
+        <p><span class="discount">15% OFF</span></p>
+        <h3>Casual Shirt</h3>
+        <p>A versatile shirt for college, work, and outings.</p>
+        <p class="rating">★ ★ ★ ★ ☆ (4.2)</p>
+        <p><span class="price">₹849</span> <span class="old-price">₹999</span></p>
+        <button onclick="addToCart('Casual Shirt')">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="fashion">
+        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=500&q=80" alt="Fashion footwear">
+        <p><span class="discount">25% OFF</span></p>
+        <h3>Casual Footwear</h3>
+        <p>Comfortable footwear for everyday activities.</p>
+        <p class="rating">★ ★ ★ ★ ☆ (4.3)</p>
+        <p><span class="price">₹1,199</span> <span class="old-price">₹1,599</span></p>
+        <button onclick="addToCart('Casual Footwear')">Add to Cart</button>
+    </div>
+
+    <!-- ACCESSORIES -->
+
+    <div class="product" data-category="accessories">
+        <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=500&q=80" alt="Leather wallet">
+        <p><span class="discount">15% OFF</span></p>
+        <h3>Leather Wallet</h3>
+        <p>A simple and elegant wallet for daily use.</p>
+        <p class="rating">★ ★ ★ ★ ☆ (4.1)</p>
+        <p><span class="price">₹849</span> <span class="old-price">₹999</span></p>
+        <button onclick="addToCart('Leather Wallet')">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="accessories">
+        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=500&q=80" alt="Sunglasses">
+        <p><span class="discount">25% OFF</span></p>
+        <h3>Classic Sunglasses</h3>
+        <p>Modern sunglasses for a stylish look.</p>
+        <p class="rating">★ ★ ★ ★ ☆ (4.4)</p>
+        <p><span class="price">₹749</span> <span class="old-price">₹999</span></p>
+        <button onclick="addToCart('Classic Sunglasses')">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="accessories">
+        <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=500&q=80" alt="Classic wristwatch">
+        <p><span class="discount">20% OFF</span></p>
+        <h3>Classic Wristwatch</h3>
+        <p>A refined timepiece for everyday style.</p>
+        <p class="rating">★ ★ ★ ★ ☆ (4.3)</p>
+        <p><span class="price">₹1,999</span> <span class="old-price">₹2,499</span></p>
+        <button onclick="addToCart('Classic Wristwatch')">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="accessories">
+        <img src="https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=500&q=80" alt="Travel backpack">
+        <p><span class="discount">18% OFF</span></p>
+        <h3>Travel Backpack</h3>
+        <p>Carry your books, laptop, and travel essentials.</p>
+        <p class="rating">★ ★ ★ ★ ★ (4.6)</p>
+        <p><span class="price">₹1,649</span> <span class="old-price">₹1,999</span></p>
+        <button onclick="addToCart('Travel Backpack')">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="accessories">
+        <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=500&q=80" alt="Home desk chair">
+        <p><span class="discount">10% OFF</span></p>
+        <h3>Desk Chair</h3>
+        <p>A practical seating option for study and work spaces.</p>
+        <p class="rating">★ ★ ★ ★ ☆ (4.2)</p>
+        <p><span class="price">₹4,499</span> <span class="old-price">₹4,999</span></p>
+        <button onclick="addToCart('Desk Chair')">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="accessories">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=500&q=80" alt="Reusable coffee cup">
+        <p><span class="discount">15% OFF</span></p>
+        <h3>Travel Coffee Mug</h3>
+        <p>A convenient mug for your favourite hot drinks.</p>
+        <p class="rating">★ ★ ★ ★ ☆ (4.3)</p>
+        <p><span class="price">₹599</span> <span class="old-price">₹699</span></p>
+        <button onclick="addToCart('Travel Coffee Mug')">Add to Cart</button>
+    </div>
+
+    <div class="product" data-category="accessories">
+        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=500&q=80" alt="Audio headphones">
+        <p><span class="discount">20% OFF</span></p>
+        <h3>Premium Headset</h3>
+        <p>Comfortable over-ear audio for music and video calls.</p>
+        <p class="rating">★ ★ ★ ★ ☆ (4.4)</p>
+        <p><span class="price">₹1,999</span> <span class="old-price">₹2,499</span></p>
+        <button onclick="addToCart('Premium Headset')">Add to Cart</button>
+    </div>
+
+</div>
+
+        <p id="cartMessage"></p>
+    </section>
+
+    <section id="offers">
+        <div class="offer">
+            <h2>Special Shopping Offers</h2>
+            <p>Refresh your style with great deals on selected products.</p>
+            <p><strong>Save more when you shop your favourites!</strong></p>
+            <a href="#products">
+                <button>Explore Offers</button>
+            </a>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: support@vinlandstore.example</p>
+        <p>Phone: +91 98765 43210</p>
+        <p>We are happy to help you with your shopping.</p>
+    </section>
+
+    <footer>
+        <h3>Vinland Store</h3>
+        <p>Quality Products • Great Prices • Happy Shopping</p>
+        <p>© 2026 Vinland Store. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

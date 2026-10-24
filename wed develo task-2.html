@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vinland Cafe & Restaurant</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fffaf3;
+            color: #333;
+        }
+
+        header {
+            background: #39251f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-family: Georgia, serif;
+            margin: 0;
+        }
+
+        nav {
+            background: #56382d;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 12px;
+        }
+
+        nav a:hover {
+            color: #ffd28a;
+        }
+
+        .hero {
+            background: #ead8c3;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero h2 {
+            font-family: Georgia, serif;
+            font-size: 36px;
+            color: #39251f;
+        }
+
+        .hero p {
+            line-height: 1.7;
+        }
+
+        section {
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #6b3828;
+            font-family: Georgia, serif;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .food {
+            background: white;
+            width: 220px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #ddd;
+        }
+
+        .food img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .price {
+            color: #16804a;
+            font-weight: bold;
+        }
+
+        .chefs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .chef {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 200px;
+        }
+
+        .chef img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .ambience {
+            background: #f1e3d4;
+        }
+
+        .ambience img {
+            width: 280px;
+            max-width: 90%;
+            height: 190px;
+            object-fit: cover;
+            margin: 8px;
+            border-radius: 10px;
+        }
+
+        .review {
+            background: white;
+            max-width: 500px;
+            margin: 15px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px #ddd;
+        }
+
+        form {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #ddd;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 11px;
+            margin: 8px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #6b3828;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #39251f;
+        }
+
+        .hours {
+            line-height: 2;
+        }
+
+        footer {
+            background: #39251f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                display: inline-block;
+                margin: 7px;
+            }
+
+            .hero h2 {
+                font-size: 29px;
+            }
+
+            .food {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Vinland Cafe </h1>
+        <p>Good Food • Great Taste • Happy Moments </p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#chefs">Our Chefs</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#reservation">Reservation</a>
+    </nav>
+
+    <div class="hero" id="home">
+        <h2>Welcome to Vinland Cafe</h2>
+        <p>Enjoy delicious food, freshly brewed coffee, and a beautiful dining experience.</p>
+        <a href="#menu">
+            <button>Explore Our Menu</button>
+        </a>
+    </div>
+    <section id="menu">
+        <h2>Our Special Menu</h2>
+        <p>Freshly prepared favorites for every occasion.</p>
+
+        <div class="menu">
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&q=80" alt="Pizza">
+                <h3>Italian Pizza</h3>
+                <p>Cheesy pizza with fresh toppings.</p>
+                <p class="price">₹249</p>
+            </div>
+
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" alt="Burger">
+                <h3>Classic Burger</h3>
+                <p>Juicy burger with fresh vegetables.</p>
+                <p class="price">₹179</p>
+            </div>
+
+            <div class="food">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=500&q=80" alt="Coffee">
+                <h3>Hot Coffee</h3>
+                <p>Freshly brewed aromatic coffee.</p>
+                <p class="price">₹99</p>
+            </div>
+
+            <div class="food">
+                <img src="chocolate-icecream.jpg" alt="Pizza">
+                <h3>Chocolate Icecream</h3>
+                <p>Chocolate Icecream in Italian Streets</p>
+                <p class="price">₹249</p>
+            </div>
+
+        </div>
+    </section>
+    <section id="chefs">
+        <h2>Meet Our Chefs</h2>
+
+        <div class="chefs">
+            <div class="chef">
+                <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=300&q=80" alt="Head chef">
+                <h3>Chef Abhi </h3>
+                <p>Head Chef</p>
+            </div>
+
+            <div class="chef">
+                <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&w=300&q=80" alt="Pastry chef">
+                <h3>Chef Sai</h3>
+                <p>Pastry Specialist</p>
+            </div>
+        </div>
+    </section>
+    <section class="ambience">
+        <h2>Our Restaurant Ambience</h2>
+        <p>A warm and welcoming place to enjoy every meal.</p>
+
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Restaurant interior">
+
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80" alt="Fine dining setup">
+    </section>
+    <section id="reviews">
+        <h2>Customer Reviews</h2>
+
+        <div class="review">
+            <p>⭐⭐⭐⭐⭐</p>
+            <p>"Amazing food and friendly service. The atmosphere is wonderful!"</p>
+            <strong>— Prasad</strong>
+        </div>
+
+        <div class="review">
+            <p>⭐⭐⭐⭐⭐</p>
+            <p>"Delicious coffee and a perfect place to spend time with friends."</p>
+            <strong>— Sai Siddardha</strong>
+        </div>
+    </section>
+
+    <section id="location">
+        <h2>Visit Us</h2>
+
+        <div class="hours">
+            <h3>Opening Hours</h3>
+            <p>Monday – Friday: 10:00 AM – 10:00 PM</p>
+            <p>Saturday – Sunday: 9:00 AM – 11:00 PM</p>
+
+            <h3>Location</h3>
+            <p> Santacruz East, Mumbai, Maharashtra 400055</p>
+        </div>
+
+        <a href="https://www.google.com/maps?vet=10CAAQoqAOahcKEwiI_IWJ08OXAxUAAAAAHQAAAAAQCw..i&sca_esv=5d6152e3a71f16a5&mstk=AUtExfAgtcTP3uKlsGcXtbIHt7Er0sIdza4W5JyAQdP-ScJIbYstRqH_vjAUeSAPV2LotcTV1wrNp2tkQkHPdMWI9ynOY0Y9RTLFQbmdbQNp_yNZxP4F7RaAmIUH_OIWOtqiJQkkEBlLOflFhbN_McSqCoLcbzeKvN5IQpl9jp8m2sNe2odBF4njM4R_UAdQY8azaG_ygepglG19UVizAsSYYEnjh48YraIAPyYRqbZgRW5vJWaNwXf3n599Z9lbXJ23PUIEdcJ4t33lqUA1_uU2xDSZzWnT_ZOZFbQ3NNIlMeDhVw&hl=en&pvq=CgsvZy8xdHJ4YzR5Y4ABAZABAQ&fvr=1&cs=1&um=1&ie=UTF-8&fb=1&gl=in&sa=X&ftid=0x3be7c902001a5969:0x9fa17ebc80fc492d"
+           target="_blank" rel="noopener">
+            <button>Find Us on Google Maps</button>
+        </a>
+    </section>
+
+    <section id="reservation">
+        <h2>Reserve Your Table</h2>
+        <p>Book a table for your next special occasion.</p>
+
+        <form id="bookingForm">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="date">Reservation Date</label>
+            <input type="date" id="date" required>
+
+            <label for="time">Reservation Time</label>
+            <select id="time" required>
+                <option value="">Select time</option>
+                <option>10:00 AM</option>
+                <option>12:00 PM</option>
+                <option>2:00 PM</option>
+                <option>6:00 PM</option>
+                <option>8:00 PM</option>
+            </select>
+
+            <label for="guests">Number of Guests</label>
+            <select id="guests" required>
+                <option value="">Select guests</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+            </select>
+
+            <button type="submit">Book a Table</button>
+        </form>
+
+        <p id="message"></p>
+    </section>
+
+    <footer>
+        <h3>Vinland Cafe</h3>
+        <p>Email: vinlandcafe@example.com</p>
+        <p>Phone: +91 98765 43210</p>
+        <p>© 2026 Vinland Cafe. All rights reserved.</p>
+    </footer>
+</body>
+</html>
